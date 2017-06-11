@@ -1,5 +1,5 @@
 package com.boys.action;
-
+//·ÖÖ§
 public class test {
 	private void Sysout() {
 		// TODO Auto-generated method stub
