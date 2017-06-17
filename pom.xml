@@ -19,6 +19,20 @@
       		<version>3.0</version>
       	</configuration>
       </plugin>
+
     </plugins>
   </build>
+  
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>3.0.5.RELEASE</version>
+	</dependency>
+  
+  
+  
+  
+  </dependencies>
 </project>
