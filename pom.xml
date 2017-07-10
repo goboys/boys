@@ -31,7 +31,12 @@
 	    <version>3.0.5.RELEASE</version>
 	</dependency>
   
+   <dependency>
+   	<groupId>org.apache.taglibs.standard</groupId>
+   	<artifactId>jstl</artifactId>
+   <version>1.2</version>
   
+</dependency>
   
   
   </dependencies>
