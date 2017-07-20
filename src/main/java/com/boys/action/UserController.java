@@ -1,9 +1,11 @@
 package com.boys.action;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.boys.bean.User;
-import com.boys.server.UserService;
+import com.boys.server.IUserService;
+
 /**
  * 
  *    
@@ -33,12 +36,19 @@ import com.boys.server.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService userServer;
+	private IUserService userService;
 	
 	@RequestMapping("/test")
 	public String test(HttpServletRequest request,HttpServletResponse response){
 		
-		User user = userServer.getUserById("");
+		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"conf/springconf/dubbox-consumer.xml"});
+		//context.start();
+	
+		//userService = (IUserService)context.getBean("userService"); // 获取远程服务代理
+		
+		
+		System.out.println("user="+userService);
+		User user = userService.getUserById("");
 		
 		
 		System.out.println("user="+user.getName());
