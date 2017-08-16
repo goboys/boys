@@ -31,7 +31,7 @@
   </build>
   
   <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+  
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
@@ -41,16 +41,21 @@
    <dependency>
    	<groupId>org.apache.taglibs.standard</groupId>
    	<artifactId>jstl</artifactId>
-   <version>1.2</version>
-  
-</dependency>
+    <version>1.2</version>
+   </dependency>
 
- <dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>dubbo</artifactId>
-			<version>${dubbo.version}</version>
+ 	 <dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>dubbo</artifactId>
+		<version>${dubbo.version}</version>
 	 </dependency>
-  
+  	
+  	 <dependency>
+		<groupId>com.boys.public</groupId>
+		<artifactId>boys_public</artifactId>
+		<version>1.0-SNAPSHOT</version>			
+	 </dependency>
+  		
   
   </dependencies>
 </project>

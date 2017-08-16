@@ -1,34 +1,31 @@
 package com.boys.action;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.boys.bean.User;
-import com.boys.server.IUserService;
+import com.boys.server.iface.IUserService;
 
 /**
  * 
  *    
- * ÏîÄ¿Ãû³Æ£ºboys   
- * ÀàÃû³Æ£ºUserController   
- * ÀàÃèÊö£º spring MVC Í¨¹ıÒ»¸ö@Controller×¢½â¼´¿É½«Ò»¸öPOJO×ª»¯Îª´¦ÀíÇëÇóµÄ¿ØÖÆÆ÷£¬Í¨¹ıRequestMappingÎª¿ØÖÆÆ÷Ö¸¶¨´¦Àí
- * ÄÄĞ©URLµÄÇëÇó¡£
- * RequestMapping²»µ«Ö§³Ö±ê×¼µÄURL£¬»¹Ö§³ÖAnt·ç¸ñ£¨¼´£¿¡ù ºÍ¡ùµÄ×Ö·û£©
- * user/¡ù/createUserÆ¥Åä/user/aaa/createUser , /user/bbb/createUserµÈURL
- * user/createUser?? :Æ¥Åä/user/createUseraa,/user/createUserbb µÈURL   ¡¾´øÕ¼Î»·ûURL¡¿
- * user/{userId} Æ¥Åäuser/123,user/456µÈURL
+ * é¡¹ç›®åç§°ï¼šboys   
+ * ç±»åç§°ï¼šUserController   
+ * ç±»æè¿°ï¼š spring MVC é€šè¿‡ä¸€ä¸ª@Controlleræ³¨è§£å³å¯å°†ä¸€ä¸ªPOJOè½¬åŒ–ä¸ºå¤„ç†è¯·æ±‚çš„æ§åˆ¶å™¨ï¼Œé€šè¿‡RequestMappingä¸ºæ§åˆ¶å™¨æŒ‡å®šå¤„ç†
+ * å“ªäº›URLçš„è¯·æ±‚ã€‚
+ * RequestMappingä¸ä½†æ”¯æŒæ ‡å‡†çš„URLï¼Œè¿˜æ”¯æŒAnté£æ ¼ï¼ˆå³ï¼Ÿâ€» å’Œâ€»çš„å­—ç¬¦ï¼‰
+ * user/â€»/createUseråŒ¹é…/user/aaa/createUser , /user/bbb/createUserç­‰URL
+ * user/createUser?? :åŒ¹é…/user/createUseraa,/user/createUserbb ç­‰URL   ã€å¸¦å ä½ç¬¦URLã€‘
+ * user/{userId} åŒ¹é…user/123,user/456ç­‰URL
  *   
- * ´´½¨ÈË£ºboys  
- * ´´½¨Ê±¼ä£º2017Äê6ÔÂ17ÈÕ ÏÂÎç3:56:04        
+ * åˆ›å»ºäººï¼šboys  
+ * åˆ›å»ºæ—¶é—´ï¼š2017å¹´6æœˆ17æ—¥ ä¸‹åˆ3:56:04        
  *
  */
 @Controller
@@ -41,10 +38,6 @@ public class UserController {
 	@RequestMapping("/test")
 	public String test(HttpServletRequest request,HttpServletResponse response){
 		
-		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"conf/springconf/dubbox-consumer.xml"});
-		//context.start();
-	
-		//userService = (IUserService)context.getBean("userService"); // »ñÈ¡Ô¶³Ì·şÎñ´úÀí
 		
 		
 		System.out.println("user="+userService);
@@ -58,8 +51,8 @@ public class UserController {
 	}
 	
 	/**
-	 * URLÖĞµÄ{XXX}Õ¼Î»·û¿ÉÒÔÍ¨¹ı@Path Variable("xxx")°ó¶¨µ½²Ù×÷·½·¨ÖĞµÄÈë²ÎÖĞ¡£Àà¶¨Î»´¦requestMappingµÄURLÈç¹ûÊ¹ÓÃ
-	 * Õ¼Î»·ûµÄ²ÎÊı£¬Ò²¿ÉÒÔ°ó¶¨µ½´¦Àí·½·¨µÄÈë²ÎÖĞ
+	 * URLä¸­çš„{XXX}å ä½ç¬¦å¯ä»¥é€šè¿‡@Path Variable("xxx")ç»‘å®šåˆ°æ“ä½œæ–¹æ³•ä¸­çš„å…¥å‚ä¸­ã€‚ç±»å®šä½å¤„requestMappingçš„URLå¦‚æœä½¿ç”¨
+	 * å ä½ç¬¦çš„å‚æ•°ï¼Œä¹Ÿå¯ä»¥ç»‘å®šåˆ°å¤„ç†æ–¹æ³•çš„å…¥å‚ä¸­
 	 * @param userId
 	 * @return
 	
@@ -72,12 +65,12 @@ public class UserController {
 	} */
 	
 	/**
-	 * requestMapping³ıÁË¿ÉÒÔÊ¹ÓÃÇëÇóURLÓ³ÉäÇëÇóÍâ£¬»¹¿ÉÒÔÊ¹ÓÃÇëÇó·½·¨¡¢ÇëÇóÍ·²ÎÊı¼°ÇëÇó²ÎÊı£¨±¨ÎÄÌåºÍURL°üº¬µÄÇëÇó²ÎÊı£©
-	 * Ó³ÉäÇëÇó¡£
-	 * value ÇëÇóURL
-	 * method ÇëÇó·½·¨
-	 * params ÇëÇó²ÎÊıÒÔ¼°±¨ÎÄÍ·µÄÓ³ÉäÌõ¼ş
-	 * headers ±¨ÎÄÍ·µÄÓ³ÉäÌõ¼ş
+	 * requestMappingé™¤äº†å¯ä»¥ä½¿ç”¨è¯·æ±‚URLæ˜ å°„è¯·æ±‚å¤–ï¼Œè¿˜å¯ä»¥ä½¿ç”¨è¯·æ±‚æ–¹æ³•ã€è¯·æ±‚å¤´å‚æ•°åŠè¯·æ±‚å‚æ•°ï¼ˆæŠ¥æ–‡ä½“å’ŒURLåŒ…å«çš„è¯·æ±‚å‚æ•°ï¼‰
+	 * æ˜ å°„è¯·æ±‚ã€‚
+	 * value è¯·æ±‚URL
+	 * method è¯·æ±‚æ–¹æ³•
+	 * params è¯·æ±‚å‚æ•°ä»¥åŠæŠ¥æ–‡å¤´çš„æ˜ å°„æ¡ä»¶
+	 * headers æŠ¥æ–‡å¤´çš„æ˜ å°„æ¡ä»¶
 	 * @param userId
 	 * @return
 	 */
