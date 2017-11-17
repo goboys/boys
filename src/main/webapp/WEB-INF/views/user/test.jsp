@@ -25,6 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  
+  test Map:${map}
+  <br><br>
     姓名：${user.name}
   </body>
 </html>

@@ -35,10 +35,8 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 	
-	@RequestMapping("/test")
+	@RequestMapping("/doboxTest")
 	public String test(HttpServletRequest request,HttpServletResponse response){
-		
-		
 		
 		System.out.println("user="+userService);
 		User user = userService.getUserById("");
