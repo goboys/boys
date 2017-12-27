@@ -24,7 +24,7 @@ public class FileController {
 	
 	@RequestMapping("/init")
 	public String test(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("ÏÂÔØÊ²Ã´¶«Î÷£¿");
+		System.out.println("ä¸‹è½½ä»€ä¹ˆä¸œè¥¿ï¼Ÿ");
 		return "file/file";
 	}
 	
@@ -34,7 +34,7 @@ public class FileController {
 		InputStream fis = null;
 		OutputStream toClient = null;
 	    try {   
-	    	System.out.println("¿ªÊ¼ÏÂÔØ......");
+	    	System.out.println("å¼€å§‹ä¸‹è½½......");
 	            File file = new File(path);   
 	              if (file.exists()) {   
 	                 String filename = file.getName();   
@@ -64,7 +64,7 @@ public class FileController {
 	                 out.print("</script>");  
 	                 out.close();
 	              }  
-	              System.out.println("ÏÂÔØ......");
+	              System.out.println("ä¸‹è½½......");
 	          } catch (IOException ex) {   
 	             PrintWriter out = response.getWriter();   
 	                 out.print("<script>");   
